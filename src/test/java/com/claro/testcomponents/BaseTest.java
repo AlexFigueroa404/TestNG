@@ -1,5 +1,6 @@
 package com.claro.testcomponents;
 
+import com.claro.abstractcomponent.AbstractComponent;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -7,6 +8,7 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterClass;
 
 public class BaseTest {
 
@@ -16,10 +18,9 @@ public class BaseTest {
 
   public WebDriver initializeDriver() throws IOException {
 
-
     browser = getProperties("browser");
 
-    if (browser.equals("chrome")){
+    if (browser.equals("chrome")) {
       WebDriverManager.chromedriver().setup();
       driver = new ChromeDriver();
 
@@ -33,7 +34,6 @@ public class BaseTest {
 
     return driver;
   }
-
 
   public String getProperties(String key) {
 
@@ -49,13 +49,15 @@ public class BaseTest {
   }
 
 
-
-  public void tierDown() {
-    driver.quit();
-  }
-
-
-
-
-
+//  @AfterClass
+//  public void tierDown() {
+//    try {
+//      if (driver != null) {
+//        driver.quit();
+//      }
+//    } catch (Exception e) {
+//      System.out.println("Error during driver quit: " + e.getMessage());
+//    }
+//  }
 }
+
