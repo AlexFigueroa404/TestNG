@@ -1,4 +1,4 @@
-package pages;
+package com.claro.pages;
 
 import com.claro.abstractcomponent.AbstractComponent;
 import org.openqa.selenium.WebDriver;

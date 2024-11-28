@@ -1,4 +1,4 @@
-package pages;
+package com.claro.pages;
 
 import com.claro.abstractcomponent.AbstractComponent;
 import java.time.Duration;
@@ -40,14 +40,12 @@ public class SocialMediaIcons extends AbstractComponent {
   @FindBy(how = How.XPATH, using = "//div[@class='footerRS fRSBtns fRSBtnsLibRec']//dl")
   private WebElement footer;
 
-  @FindBy(id = "themaCookieModal")
-  WebElement cookieModal;
 
 
 
 
-  @FindBy(xpath = "//button[@class='fancybox-button fancybox-close-small']")
-  private WebElement closeCookieModalButton;
+
+
 
   public SocialMediaIcons(WebDriver driver) {
 
@@ -69,24 +67,6 @@ public class SocialMediaIcons extends AbstractComponent {
 
   public void clickOnWhatsAppIcon() {
     // Click on WhatsApp icon
-  }
-
-
-
-  public void closeCookieModal(){
-    try {
-      WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1000));
-      wait.until(ExpectedConditions.or(
-          ExpectedConditions.visibilityOf(cookieModal),
-          ExpectedConditions.invisibilityOf(cookieModal)
-      ));
-      if (cookieModal.isDisplayed()) {
-        closeCookieModalButton.click();
-        wait.until(ExpectedConditions.invisibilityOf(cookieModal));
-      }
-    } catch (Exception e) {
-      System.out.println("Error: " + e.getMessage());
-    }
   }
 
 

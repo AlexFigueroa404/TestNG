@@ -3,12 +3,10 @@ package com.claro.testcomponents;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Driver;
 import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import pages.HomePage;
 
 public class BaseTest {
 
@@ -52,6 +50,9 @@ public class BaseTest {
 
 
 
+  public void tierDown() {
+    driver.quit();
+  }
 
 
 
